@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Is My Plant OK?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- QR Code Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e8f5ee;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #1b5e20;
+    }
+    h2 {
+      color: #2e7d32;
+    }
+    .box {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #388e3c;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    #qrcode {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🌿 Is My Plant OK?</h1>
+
+<div class="box">
+  <h2>🌱 Choose Plant Type</h2>
+  <select id="plantType">
+    <option>General House Plant</option>
+    <option>Succulent / Cactus</option>
+    <option>Flowering Plant</option>
+    <option>Herb</option>
+  </select>
+</div>
+
+<div class="box">
+  <h2>📸 Upload Plant Image</h2>
+  <input type="file" accept="image/*">
+</div>
+
+<button onclick="analyze()">Analyze Plant</button>
+
+<div class="box" id="result"></div>
+
+<div class="box">
+  <h2>📱 Share This App</h2>
+  <p>Scan the QR code to open the app</p>
+  <div id="qrcode"></div>
+</div>
+
+<script>
+function analyze() {
+  document.getElementById("result").innerHTML = `
+    <h2>🧠 Result</h2>
+    <p>The plant appears <strong>healthy</strong>.</p>
+    <p>💧 Water: 150–200 ml every 4–6 days</p>
+    <p>☀️ Sunlight: Bright indirect light</p>
+  `;
+}
+
+/* YOUR LINK */
+var appLink = "https://onecompiler.com/html/44bytvp6m";
+
+new QRCode(document.getElementById("qrcode"), {
+  text: appLink,
+  width: 150,
+  height: 150
+});
+</script>
+
+</body>
+</html>
